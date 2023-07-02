@@ -15,14 +15,15 @@
   },
   "dependencies": {
     "@vueuse/core": "10.2.1",
+    "font-proxima-nova-css": "1.0.4",
     "vue": "3.3.4",
     "vue-router": "4.2.2"
   },
   "devDependencies": {
     "@antfu/eslint-config": "0.39.6",
+    "@iconify-json/mdi": "1.1.52",
     "@types/jsdom": "21.1.1",
     "@unocss/eslint-config": "0.53.4",
-    "@unocss/reset": "0.53.4",
     "@vitejs/plugin-vue": "4.2.3",
     "jsdom": "22.1.0",
     "typescript": "5.1.6",

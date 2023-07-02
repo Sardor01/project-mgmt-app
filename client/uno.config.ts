@@ -1,4 +1,4 @@
-import { defineConfig, presetAttributify, presetIcons, presetUno, presetWebFonts } from 'unocss'
+import { defineConfig, presetAttributify, presetIcons, presetTypography, presetUno, presetWebFonts } from 'unocss'
 
 export default defineConfig({
   presets: [
@@ -8,12 +8,17 @@ export default defineConfig({
       scale: 1.2,
       warn: true,
     }),
+    presetTypography(),
     presetWebFonts({
+      provider: 'none',
       fonts: {
-        sans: 'DM Sans',
-        serif: 'DM Serif Display',
-        mono: 'DM Mono',
+        sans: 'Proxima Nova',
       },
     }),
   ],
+  theme: {
+    container: {
+      center: true,
+    },
+  },
 })
