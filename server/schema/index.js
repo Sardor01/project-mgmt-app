@@ -96,6 +96,9 @@ const mutation = new GraphQLObjectType({
         id: { type: GraphQLNonNull(GraphQLID) }
       },
       resolve(_, args) {
+        Project.find({ clientId: args.id }).then((projects) => {
+          projects.forEach((project) => project.remove())
+        })
         return Client.findByIdAndRemove(args.id)
       }
     },
@@ -135,6 +138,37 @@ const mutation = new GraphQLObjectType({
       },
       resolve(_, args) {
         return Project.findByIdAndRemove(args.id)
+      }
+    },
+    updateProject: {
+      type: ProjectType,
+      args: {
+        id: { type: GraphQLNonNull(GraphQLID) },
+        name: { type: GraphQLString },
+        description: { type: GraphQLString },
+        status: {
+          type: new GraphQLEnumType({
+            name: 'ProjectStatusUpdate',
+            values: {
+              'NOT_STARTED': { value: 'Not Started' },
+              'IN_PROGRESS': { value: 'In Progress' },
+              'COMPLETED': { value: 'Completed' }
+            }
+          })
+        }
+      },
+      resolve(_, args) {
+        return Project.findByIdAndUpdate(
+          args.id,
+          {
+            $set: {
+              name: args.name,
+              description: args.description,
+              status: args.status
+            }
+          },
+          { new: true }
+        )
       }
     }
   }
