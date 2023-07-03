@@ -1,8 +1,12 @@
 {
   "private": true,
   "packageManager": "pnpm@8.6.5",
+  "dependencies": {
+    "graphql": "16.7.1"
+  },
   "devDependencies": {
     "@types/node": "20.3.3",
+    "dotenv": "16.3.1",
     "eslint": "8.44.0",
     "eslint-config-prettier": "8.8.0",
     "eslint-plugin-prettier": "4.2.1",

@@ -1,3 +1,12 @@
+<script setup lang="ts">
+import type { GetHomeQuery } from '~/graphql/__generated__/graphql'
+import type { NonNullable } from '~/utils/types'
+
+defineProps<{
+  data: NonNullable<NonNullable<GetHomeQuery>['clients']>
+}>()
+</script>
+
 <template>
   <div class="overflow-x-auto" style="-webkit-overflow-scrolling: touch">
     <table class="mt-2 w-full border-collapse table-auto">
@@ -16,18 +25,18 @@
         </tr>
       </thead>
       <tbody class="bg-white">
-        <tr v-for="n in 3" :key="n">
-          <td class="border-b border-gray-300 p-4 pl-6 text-gray-700">
-            The Sliding Mr. Bones (Next Stop, Pottersville)
-          </td>
-          <td class="border-b border-gray-300 p-4 text-gray-700">Malcolm Lockyer</td>
-          <td class="border-b border-gray-300 p-4 text-gray-700">1961</td>
-          <td class="border-b border-gray-300 p-4 pr-6 text-gray-700">
-            <button class="h-9 w-9 flex items-center justify-center rounded-2 bg-red-600/10 text-red-600">
-              <span class="i-mdi-delete block text-lg" />
-            </button>
-          </td>
-        </tr>
+        <template v-for="item in data">
+          <tr v-if="item && item.id" :key="item.id">
+            <td class="border-b border-gray-300 p-4 pl-6 text-gray-700">{{ item.name }}</td>
+            <td class="border-b border-gray-300 p-4 text-gray-700">{{ item.email }}</td>
+            <td class="border-b border-gray-300 p-4 text-gray-700">{{ item.phone }}</td>
+            <td class="border-b border-gray-300 p-4 pr-6 text-gray-700">
+              <button class="h-9 w-9 flex items-center justify-center rounded-2 bg-red-600/10 text-red-600">
+                <span class="i-mdi-delete block text-lg" />
+              </button>
+            </td>
+          </tr>
+        </template>
       </tbody>
     </table>
   </div>
