@@ -49,12 +49,18 @@ declare global {
   const toRaw: typeof import('vue')['toRaw']
   const toRef: typeof import('vue')['toRef']
   const toRefs: typeof import('vue')['toRefs']
+  const toTypedSchema: typeof import('@vee-validate/yup')['toTypedSchema']
   const toValue: typeof import('vue')['toValue']
   const triggerRef: typeof import('vue')['triggerRef']
   const unref: typeof import('vue')['unref']
   const useAttrs: typeof import('vue')['useAttrs']
   const useCssModule: typeof import('vue')['useCssModule']
   const useCssVars: typeof import('vue')['useCssVars']
+  const useField: typeof import('vee-validate')['useField']
+  const useFieldArray: typeof import('vee-validate')['useFieldArray']
+  const useForm: typeof import('vee-validate')['useForm']
+  const useMutation: typeof import('@urql/vue')['useMutation']
+  const useQuery: typeof import('@urql/vue')['useQuery']
   const useRoute: typeof import('vue-router/auto')['useRoute']
   const useRouter: typeof import('vue-router/auto')['useRouter']
   const useSlots: typeof import('vue')['useSlots']
@@ -117,12 +123,18 @@ declare module 'vue' {
     readonly toRaw: UnwrapRef<typeof import('vue')['toRaw']>
     readonly toRef: UnwrapRef<typeof import('vue')['toRef']>
     readonly toRefs: UnwrapRef<typeof import('vue')['toRefs']>
+    readonly toTypedSchema: UnwrapRef<typeof import('@vee-validate/yup')['toTypedSchema']>
     readonly toValue: UnwrapRef<typeof import('vue')['toValue']>
     readonly triggerRef: UnwrapRef<typeof import('vue')['triggerRef']>
     readonly unref: UnwrapRef<typeof import('vue')['unref']>
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
+    readonly useField: UnwrapRef<typeof import('vee-validate')['useField']>
+    readonly useFieldArray: UnwrapRef<typeof import('vee-validate')['useFieldArray']>
+    readonly useForm: UnwrapRef<typeof import('vee-validate')['useForm']>
+    readonly useMutation: UnwrapRef<typeof import('@urql/vue')['useMutation']>
+    readonly useQuery: UnwrapRef<typeof import('@urql/vue')['useQuery']>
     readonly useRoute: UnwrapRef<typeof import('vue-router/auto')['useRoute']>
     readonly useRouter: UnwrapRef<typeof import('vue-router/auto')['useRouter']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>
@@ -179,12 +191,18 @@ declare module '@vue/runtime-core' {
     readonly toRaw: UnwrapRef<typeof import('vue')['toRaw']>
     readonly toRef: UnwrapRef<typeof import('vue')['toRef']>
     readonly toRefs: UnwrapRef<typeof import('vue')['toRefs']>
+    readonly toTypedSchema: UnwrapRef<typeof import('@vee-validate/yup')['toTypedSchema']>
     readonly toValue: UnwrapRef<typeof import('vue')['toValue']>
     readonly triggerRef: UnwrapRef<typeof import('vue')['triggerRef']>
     readonly unref: UnwrapRef<typeof import('vue')['unref']>
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
+    readonly useField: UnwrapRef<typeof import('vee-validate')['useField']>
+    readonly useFieldArray: UnwrapRef<typeof import('vee-validate')['useFieldArray']>
+    readonly useForm: UnwrapRef<typeof import('vee-validate')['useForm']>
+    readonly useMutation: UnwrapRef<typeof import('@urql/vue')['useMutation']>
+    readonly useQuery: UnwrapRef<typeof import('@urql/vue')['useQuery']>
     readonly useRoute: UnwrapRef<typeof import('vue-router/auto')['useRoute']>
     readonly useRouter: UnwrapRef<typeof import('vue-router/auto')['useRouter']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>

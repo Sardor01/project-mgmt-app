@@ -21,7 +21,7 @@ defineProps<{
             Status: <span class="font-bold">{{ item.status }}</span>
           </p>
         </div>
-        <base-button class="text-sm">View</base-button>
+        <base-button size="small" class="text-sm">View</base-button>
       </div>
     </template>
   </div>

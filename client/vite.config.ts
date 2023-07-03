@@ -17,9 +17,20 @@ export default defineConfig({
   },
   plugins: [
     VueRouter(),
-    Vue(),
+    Vue({
+      script: {
+        defineModel: true,
+        propsDestructure: true,
+      },
+    }),
     AutoImport({
-      imports: ['vue', VueRouterAutoImports],
+      imports: [
+        'vue',
+        VueRouterAutoImports,
+        { 'vee-validate': ['useField', 'useFieldArray', 'useForm'] },
+        { '@urql/vue': ['useQuery', 'useMutation'] },
+        { '@vee-validate/yup': ['toTypedSchema'] },
+      ],
       include: [/\.[tj]sx?$/, /\.vue$/, /\.vue\?vue/],
       vueTemplate: true,
     }),

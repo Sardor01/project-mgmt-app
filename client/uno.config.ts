@@ -1,4 +1,12 @@
-import { defineConfig, presetAttributify, presetIcons, presetTypography, presetUno, presetWebFonts } from 'unocss'
+import {
+  defineConfig,
+  presetAttributify,
+  presetIcons,
+  presetTypography,
+  presetUno,
+  presetWebFonts,
+  transformerVariantGroup,
+} from 'unocss'
 
 export default defineConfig({
   presets: [
@@ -21,4 +29,5 @@ export default defineConfig({
       center: true,
     },
   },
+  transformers: [transformerVariantGroup()],
 })
