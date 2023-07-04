@@ -11,7 +11,7 @@ const { fetching, executeMutation: deleteClient } = useMutation(DELETE_CLIENT)
 </script>
 
 <template>
-  <div v-if="fetching"><img src="/spinner.gif" alt="" draggable="false" class="mx-auto" /></div>
+  <div v-if="fetching"><img src="/spinner.gif" width="150" alt="" draggable="false" class="mx-auto" /></div>
   <div v-else class="overflow-x-auto" style="-webkit-overflow-scrolling: touch">
     <table class="mt-2 w-full border-collapse table-auto">
       <colgroup>

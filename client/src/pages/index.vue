@@ -20,7 +20,7 @@ const { data, fetching } = useQuery({ query: GET_HOME })
         </base-button>
       </router-link>
     </div>
-    <div v-if="fetching"><img src="/spinner.gif" alt="" draggable="false" class="mx-auto" /></div>
+    <div v-if="fetching"><img src="/spinner.gif" width="150" alt="" draggable="false" class="mx-auto" /></div>
     <div v-if="data" class="space-y-6">
       <details v-if="data.clients && data.clients.length" open>
         <summary class="cursor-pointer py-1 text-2xl font-semibold">Clients</summary>
