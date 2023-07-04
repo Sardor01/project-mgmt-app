@@ -98,6 +98,11 @@ export type RootQueryTypeProjectArgs = {
   id?: InputMaybe<Scalars['ID']['input']>
 }
 
+export type Subscription = {
+  __typename?: 'Subscription'
+  greetings?: Maybe<Scalars['String']['output']>
+}
+
 export type AddClientMutationVariables = Exact<{
   name: Scalars['String']['input']
   email: Scalars['String']['input']
@@ -192,6 +197,10 @@ export type GetProjectQuery = {
     client?: { __typename?: 'Client'; id?: string | null } | null
   } | null
 }
+
+export type GreetingsSubscriptionVariables = Exact<{ [key: string]: never }>
+
+export type GreetingsSubscription = { __typename?: 'Subscription'; greetings?: string | null }
 
 export const AddClientDocument = {
   kind: 'Document',
@@ -589,3 +598,17 @@ export const GetProjectDocument = {
     },
   ],
 } as unknown as DocumentNode<GetProjectQuery, GetProjectQueryVariables>
+export const GreetingsDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'subscription',
+      name: { kind: 'Name', value: 'Greetings' },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [{ kind: 'Field', name: { kind: 'Name', value: 'greetings' } }],
+      },
+    },
+  ],
+} as unknown as DocumentNode<GreetingsSubscription, GreetingsSubscriptionVariables>

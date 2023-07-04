@@ -124,9 +124,15 @@ importers:
       graphql-http:
         specifier: 1.19.0
         version: 1.19.0(graphql@16.7.1)
+      graphql-ws:
+        specifier: 5.14.0
+        version: 5.14.0(graphql@16.7.1)
       mongoose:
         specifier: 7.3.1
         version: 7.3.1
+      ws:
+        specifier: 8.13.0
+        version: 8.13.0
     devDependencies:
       '@types/express':
         specifier: 4.17.17
@@ -3943,7 +3949,7 @@ packages:
     dependencies:
       debug: 3.2.7(supports-color@5.5.0)
       is-core-module: 2.12.1
-      resolve: 1.22.3
+      resolve: 1.22.2
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -4802,7 +4808,6 @@ packages:
       graphql: '>=0.11 <=16'
     dependencies:
       graphql: 16.7.1
-    dev: true
 
   /graphql@16.7.1:
     resolution: {integrity: sha512-DRYR9tf+UGU0KOsMcKAlXeFfX89UiiIZ0dRU3mR0yJfu6OjZqUcp68NnFLnqQU5RexygFoDy1EW+ccOYcPfmHg==}
@@ -7832,7 +7837,6 @@ packages:
         optional: true
       utf-8-validate:
         optional: true
-    dev: true
 
   /xml-name-validator@4.0.0:
     resolution: {integrity: sha512-ICP2e+jsHvAj2E2lIHxa5tjXRlKDJo4IdvPvCXbXQGdzSfmSpNVyIKMvoZHjDY9DP0zV17iI85o90vRFXNccRw==}

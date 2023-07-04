@@ -174,7 +174,22 @@ const mutation = new GraphQLObjectType({
   },
 })
 
+const subscription = new GraphQLObjectType({
+  name: 'Subscription',
+  fields: {
+    greetings: {
+      type: GraphQLString,
+      subscribe: async function* () {
+        for (const hi of ['Hi', 'Bonjour', 'Hola', 'Ciao', 'Zdravo']) {
+          yield { greetings: hi }
+        }
+      },
+    },
+  },
+})
+
 module.exports = new GraphQLSchema({
   query: RootQuery,
   mutation,
+  subscription,
 })

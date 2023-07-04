@@ -28,7 +28,7 @@ export default defineConfig({
         'vue',
         VueRouterAutoImports,
         { 'vee-validate': ['useField', 'useFieldArray', 'useForm'] },
-        { '@urql/vue': ['useQuery', 'useMutation'] },
+        { '@urql/vue': ['useQuery', 'useMutation', 'useSubscription'] },
         { '@vee-validate/yup': ['toTypedSchema'] },
       ],
       include: [/\.[tj]sx?$/, /\.vue$/, /\.vue\?vue/],

@@ -28,6 +28,7 @@ const documents = {
     types.GetHomeDocument,
   '\n  query GetProject($id: ID!) {\n    project(id: $id) {\n      name\n      description\n      status\n      client {\n        id\n      }\n    }\n  }\n':
     types.GetProjectDocument,
+  '\n  subscription Greetings {\n    greetings\n  }\n': types.GreetingsDocument,
 }
 
 /**
@@ -92,6 +93,12 @@ export function graphql(
 export function graphql(
   source: '\n  query GetProject($id: ID!) {\n    project(id: $id) {\n      name\n      description\n      status\n      client {\n        id\n      }\n    }\n  }\n',
 ): (typeof documents)['\n  query GetProject($id: ID!) {\n    project(id: $id) {\n      name\n      description\n      status\n      client {\n        id\n      }\n    }\n  }\n']
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(
+  source: '\n  subscription Greetings {\n    greetings\n  }\n',
+): (typeof documents)['\n  subscription Greetings {\n    greetings\n  }\n']
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {}
