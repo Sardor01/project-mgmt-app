@@ -15,8 +15,11 @@ import type { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-
 const documents = {
   '\n  mutation AddClient($name: String!, $email: String!, $phone: String!) {\n    addClient(name: $name, email: $email, phone: $phone) {\n      id\n      name\n    }\n  }\n':
     types.AddClientDocument,
+  '\n  mutation AddProject($name: String!, $description: String!, $clientId: ID!, $status: ProjectStatus) {\n    addProject(name: $name, description: $description, clientId: $clientId, status: $status) {\n      id\n      name\n    }\n  }\n':
+    types.AddProjectDocument,
   '\n  mutation DeleteClient($id: ID!) {\n    deleteClient(id: $id) {\n      id\n      name\n    }\n  }\n':
     types.DeleteClientDocument,
+  '\n  query GetClients {\n    clients {\n      id\n      name\n    }\n  }\n': types.GetClientsDocument,
   '\n  query GetHome {\n    clients {\n      id\n      name\n      email\n      phone\n    }\n    projects {\n      id\n      name\n      description\n      status\n    }\n  }\n':
     types.GetHomeDocument,
 }
@@ -45,8 +48,20 @@ export function graphql(
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(
+  source: '\n  mutation AddProject($name: String!, $description: String!, $clientId: ID!, $status: ProjectStatus) {\n    addProject(name: $name, description: $description, clientId: $clientId, status: $status) {\n      id\n      name\n    }\n  }\n',
+): (typeof documents)['\n  mutation AddProject($name: String!, $description: String!, $clientId: ID!, $status: ProjectStatus) {\n    addProject(name: $name, description: $description, clientId: $clientId, status: $status) {\n      id\n      name\n    }\n  }\n']
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(
   source: '\n  mutation DeleteClient($id: ID!) {\n    deleteClient(id: $id) {\n      id\n      name\n    }\n  }\n',
 ): (typeof documents)['\n  mutation DeleteClient($id: ID!) {\n    deleteClient(id: $id) {\n      id\n      name\n    }\n  }\n']
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(
+  source: '\n  query GetClients {\n    clients {\n      id\n      name\n    }\n  }\n',
+): (typeof documents)['\n  query GetClients {\n    clients {\n      id\n      name\n    }\n  }\n']
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

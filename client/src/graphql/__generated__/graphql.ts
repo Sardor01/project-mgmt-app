@@ -109,6 +109,18 @@ export type AddClientMutation = {
   addClient?: { __typename?: 'Client'; id?: string | null; name?: string | null } | null
 }
 
+export type AddProjectMutationVariables = Exact<{
+  name: Scalars['String']['input']
+  description: Scalars['String']['input']
+  clientId: Scalars['ID']['input']
+  status?: InputMaybe<ProjectStatus>
+}>
+
+export type AddProjectMutation = {
+  __typename?: 'Mutation'
+  addProject?: { __typename?: 'Project'; id?: string | null; name?: string | null } | null
+}
+
 export type DeleteClientMutationVariables = Exact<{
   id: Scalars['ID']['input']
 }>
@@ -116,6 +128,13 @@ export type DeleteClientMutationVariables = Exact<{
 export type DeleteClientMutation = {
   __typename?: 'Mutation'
   deleteClient?: { __typename?: 'Client'; id?: string | null; name?: string | null } | null
+}
+
+export type GetClientsQueryVariables = Exact<{ [key: string]: never }>
+
+export type GetClientsQuery = {
+  __typename?: 'RootQueryType'
+  clients?: Array<{ __typename?: 'Client'; id?: string | null; name?: string | null } | null> | null
 }
 
 export type GetHomeQueryVariables = Exact<{ [key: string]: never }>
@@ -198,6 +217,76 @@ export const AddClientDocument = {
     },
   ],
 } as unknown as DocumentNode<AddClientMutation, AddClientMutationVariables>
+export const AddProjectDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'mutation',
+      name: { kind: 'Name', value: 'AddProject' },
+      variableDefinitions: [
+        {
+          kind: 'VariableDefinition',
+          variable: { kind: 'Variable', name: { kind: 'Name', value: 'name' } },
+          type: { kind: 'NonNullType', type: { kind: 'NamedType', name: { kind: 'Name', value: 'String' } } },
+        },
+        {
+          kind: 'VariableDefinition',
+          variable: { kind: 'Variable', name: { kind: 'Name', value: 'description' } },
+          type: { kind: 'NonNullType', type: { kind: 'NamedType', name: { kind: 'Name', value: 'String' } } },
+        },
+        {
+          kind: 'VariableDefinition',
+          variable: { kind: 'Variable', name: { kind: 'Name', value: 'clientId' } },
+          type: { kind: 'NonNullType', type: { kind: 'NamedType', name: { kind: 'Name', value: 'ID' } } },
+        },
+        {
+          kind: 'VariableDefinition',
+          variable: { kind: 'Variable', name: { kind: 'Name', value: 'status' } },
+          type: { kind: 'NamedType', name: { kind: 'Name', value: 'ProjectStatus' } },
+        },
+      ],
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'addProject' },
+            arguments: [
+              {
+                kind: 'Argument',
+                name: { kind: 'Name', value: 'name' },
+                value: { kind: 'Variable', name: { kind: 'Name', value: 'name' } },
+              },
+              {
+                kind: 'Argument',
+                name: { kind: 'Name', value: 'description' },
+                value: { kind: 'Variable', name: { kind: 'Name', value: 'description' } },
+              },
+              {
+                kind: 'Argument',
+                name: { kind: 'Name', value: 'clientId' },
+                value: { kind: 'Variable', name: { kind: 'Name', value: 'clientId' } },
+              },
+              {
+                kind: 'Argument',
+                name: { kind: 'Name', value: 'status' },
+                value: { kind: 'Variable', name: { kind: 'Name', value: 'status' } },
+              },
+            ],
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'name' } },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<AddProjectMutation, AddProjectMutationVariables>
 export const DeleteClientDocument = {
   kind: 'Document',
   definitions: [
@@ -238,6 +327,32 @@ export const DeleteClientDocument = {
     },
   ],
 } as unknown as DocumentNode<DeleteClientMutation, DeleteClientMutationVariables>
+export const GetClientsDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'query',
+      name: { kind: 'Name', value: 'GetClients' },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'clients' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'name' } },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<GetClientsQuery, GetClientsQueryVariables>
 export const GetHomeDocument = {
   kind: 'Document',
   definitions: [

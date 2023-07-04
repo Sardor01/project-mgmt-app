@@ -30,7 +30,7 @@ const onSubmit = handleSubmit(async (values) => {
     <router-link v-slot="{ href, navigate }" to="/" custom>
       <base-button :href="href" size="medium" class="mb-6" @click="navigate">
         <span class="i-mdi-chevron-left text-lg" />
-        Base Home
+        Back Home
       </base-button>
     </router-link>
     <form class="space-y-5" @submit.prevent="onSubmit">

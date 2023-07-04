@@ -22,13 +22,13 @@ const {
 
 const inputValue = defineModel<string | number | undefined>()
 
-const inputBase = 'block w-full border rounded-2 focus:outline-0 focus:ring-4'
-const inputSize = 'h-12 leading-12 px-3 md:h-13'
+const inputBase = 'block w-full border rounded-2 px-3 leading-12 focus:outline-0 focus:ring-4'
+const inputSize = computed(() => ``)
 
 const inputVariant =
-  'border-gray-200 bg-gray-100 text-dark-800 focus:(border-blue-400 ring-blue-400/30) placeholder:text-dark-800/50'
+  'border-gray-200 bg-gray-100 text-dark-800 focus:(border-blue-400 ring-blue-400/30) placeholder:text-dark-800/60'
 const inputVariantError =
-  'border-red-100 bg-red-50 text-red-600 focus:(border-red-600 ring-red-600/30) placeholder:text-red-600'
+  'border-red-100 bg-red-50 text-red-600 focus:(border-red-600 ring-red-600/30) placeholder:text-red-600/60'
 </script>
 
 <template>
@@ -46,8 +46,8 @@ const inputVariantError =
         :placeholder="placeholder"
         :autocomplete="autocomplete"
         :required="required"
-        class="align-middle"
-        :class="[inputBase, inputSize, error ? inputVariantError : inputVariant]"
+        class="h-12 align-middle md:h-13"
+        :class="[inputBase, error ? inputVariantError : inputVariant]"
       />
       <textarea
         v-else
@@ -57,6 +57,7 @@ const inputVariantError =
         :placeholder="placeholder"
         :autocomplete="autocomplete"
         :required="required"
+        class="min-h-[100px]"
         :class="[inputBase, inputSize, error ? inputVariantError : inputVariant]"
       />
       <slot name="suffix" />
