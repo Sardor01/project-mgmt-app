@@ -25,7 +25,7 @@
     "yup": "1.2.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "0.39.6",
+    "@antfu/eslint-config": "0.39.7",
     "@graphql-codegen/cli": "4.0.1",
     "@graphql-codegen/client-preset": "4.0.1",
     "@iconify-json/mdi": "1.1.52",
@@ -35,7 +35,7 @@
     "jsdom": "22.1.0",
     "typescript": "5.1.6",
     "unocss": "0.53.4",
-    "unplugin-auto-import": "0.16.4",
+    "unplugin-auto-import": "0.16.5",
     "unplugin-vue-components": "0.25.1",
     "unplugin-vue-router": "0.6.4",
     "vite": "4.3.9",
