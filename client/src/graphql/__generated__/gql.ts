@@ -19,9 +19,15 @@ const documents = {
     types.AddProjectDocument,
   '\n  mutation DeleteClient($id: ID!) {\n    deleteClient(id: $id) {\n      id\n      name\n    }\n  }\n':
     types.DeleteClientDocument,
+  '\n  mutation DeleteProject($id: ID!) {\n    deleteProject(id: $id) {\n      id\n      name\n    }\n  }\n':
+    types.DeleteProjectDocument,
+  '\n  mutation UpdateProject($id: ID!, $name: String, $description: String, $status: ProjectStatusUpdate) {\n    updateProject(id: $id, name: $name, description: $description, status: $status) {\n      id\n      name\n    }\n  }\n':
+    types.UpdateProjectDocument,
   '\n  query GetClients {\n    clients {\n      id\n      name\n    }\n  }\n': types.GetClientsDocument,
   '\n  query GetHome {\n    clients {\n      id\n      name\n      email\n      phone\n    }\n    projects {\n      id\n      name\n      description\n      status\n    }\n  }\n':
     types.GetHomeDocument,
+  '\n  query GetProject($id: ID!) {\n    project(id: $id) {\n      name\n      description\n      status\n      client {\n        id\n      }\n    }\n  }\n':
+    types.GetProjectDocument,
 }
 
 /**
@@ -60,6 +66,18 @@ export function graphql(
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(
+  source: '\n  mutation DeleteProject($id: ID!) {\n    deleteProject(id: $id) {\n      id\n      name\n    }\n  }\n',
+): (typeof documents)['\n  mutation DeleteProject($id: ID!) {\n    deleteProject(id: $id) {\n      id\n      name\n    }\n  }\n']
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(
+  source: '\n  mutation UpdateProject($id: ID!, $name: String, $description: String, $status: ProjectStatusUpdate) {\n    updateProject(id: $id, name: $name, description: $description, status: $status) {\n      id\n      name\n    }\n  }\n',
+): (typeof documents)['\n  mutation UpdateProject($id: ID!, $name: String, $description: String, $status: ProjectStatusUpdate) {\n    updateProject(id: $id, name: $name, description: $description, status: $status) {\n      id\n      name\n    }\n  }\n']
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(
   source: '\n  query GetClients {\n    clients {\n      id\n      name\n    }\n  }\n',
 ): (typeof documents)['\n  query GetClients {\n    clients {\n      id\n      name\n    }\n  }\n']
 /**
@@ -68,6 +86,12 @@ export function graphql(
 export function graphql(
   source: '\n  query GetHome {\n    clients {\n      id\n      name\n      email\n      phone\n    }\n    projects {\n      id\n      name\n      description\n      status\n    }\n  }\n',
 ): (typeof documents)['\n  query GetHome {\n    clients {\n      id\n      name\n      email\n      phone\n    }\n    projects {\n      id\n      name\n      description\n      status\n    }\n  }\n']
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(
+  source: '\n  query GetProject($id: ID!) {\n    project(id: $id) {\n      name\n      description\n      status\n      client {\n        id\n      }\n    }\n  }\n',
+): (typeof documents)['\n  query GetProject($id: ID!) {\n    project(id: $id) {\n      name\n      description\n      status\n      client {\n        id\n      }\n    }\n  }\n']
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {}

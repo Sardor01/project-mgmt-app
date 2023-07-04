@@ -28,7 +28,7 @@ const onSubmit = handleSubmit(async (values) => {
 <template>
   <main class="px-4 py-10 font-sans text-gray-700 container">
     <router-link v-slot="{ href, navigate }" to="/" custom>
-      <base-button :href="href" size="medium" class="mb-6" @click="navigate">
+      <base-button :href="href" size="medium" variant="gray" class="mb-6" @click="navigate">
         <span class="i-mdi-chevron-left text-lg" />
         Back Home
       </base-button>
@@ -60,7 +60,13 @@ const onSubmit = handleSubmit(async (values) => {
         :message="phone.errorMessage.value"
         :error="!phone.meta.valid && !!phone.errorMessage.value"
       />
-      <base-button size="large" class="text-sm font-semibold uppercase !mt-7" :disabled="fetching" :loading="fetching">
+      <base-button
+        size="large"
+        variant="gray"
+        class="text-sm font-semibold uppercase !mt-7"
+        :disabled="fetching"
+        :loading="fetching"
+      >
         Create Client
       </base-button>
     </form>

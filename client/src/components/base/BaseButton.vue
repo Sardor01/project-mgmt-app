@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const props = defineProps<{
+  variant: 'gray' | 'red'
   size?: 'small' | 'medium' | 'large'
   href?: string
   loading?: boolean
@@ -17,14 +18,23 @@ const btnSize = computed<string>(() => {
       return ''
   }
 })
+
+const btnVariant = computed<string>(() => {
+  switch (props.variant) {
+    case 'gray':
+      return 'bg-gray-100 hover:bg-gray-200'
+    case 'red':
+      return 'bg-red-600 text-white hover:bg-red-700'
+  }
+})
 </script>
 
 <template>
   <component
     :is="href ? 'a' : 'button'"
     :href="href"
-    class="inline-flex items-center justify-center rounded-2 bg-gray-100 transition-colors duration-200 ease-in-out disabled:(pointer-events-none opacity-80) hover:bg-gray-200"
-    :class="[btnSize]"
+    class="inline-flex items-center justify-center rounded-2 transition-colors duration-200 ease-in-out disabled:(pointer-events-none opacity-80)"
+    :class="[btnSize, btnVariant]"
   >
     <svg
       v-if="loading"

@@ -12,10 +12,8 @@ const formSchema = object({
 })
 
 const router = useRouter()
-
 const { data, fetching: clientsFetching } = useQuery({ query: GET_CLIENTS })
 const { fetching: projectFetching, executeMutation: addProject } = useMutation(ADD_PROJECT)
-
 const { handleSubmit } = useForm({
   validationSchema: toTypedSchema(formSchema),
   initialValues: { status: ProjectStatus.NotStarted },
@@ -36,7 +34,7 @@ const onSubmit = handleSubmit(async (values) => {
 <template>
   <main class="px-4 py-10 font-sans text-gray-700 container">
     <router-link v-slot="{ href, navigate }" to="/" custom>
-      <base-button :href="href" size="medium" class="mb-6" @click="navigate">
+      <base-button :href="href" size="medium" variant="gray" class="mb-6" @click="navigate">
         <span class="i-mdi-chevron-left text-lg" />
         Back Home
       </base-button>
@@ -76,6 +74,7 @@ const onSubmit = handleSubmit(async (values) => {
       />
       <base-button
         size="large"
+        variant="gray"
         class="text-sm font-semibold uppercase !mt-7"
         :disabled="clientsFetching || projectFetching"
         :loading="clientsFetching || projectFetching"

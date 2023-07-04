@@ -21,7 +21,9 @@ defineProps<{
             Status: <span class="font-bold">{{ item.status }}</span>
           </p>
         </div>
-        <base-button size="small" class="text-sm">View</base-button>
+        <router-link v-slot="{ href, navigate }" :to="`/projects/${item.id}`" custom>
+          <base-button :href="href" size="small" variant="gray" class="text-sm" @click="navigate">View</base-button>
+        </router-link>
       </div>
     </template>
   </div>
